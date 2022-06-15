@@ -1,0 +1,48 @@
+{
+  "manifest_version": 2,
+  "name": "Crypto Info",
+  "version": "1.0.0.0",
+  "author": "Nikolai Maidan",
+  "description": "Get proper information about crypto industry.",
+  "browser_action": {
+    "default_icon": {
+      "48": "./icons/icon48.png"
+    },
+    "default_title": "Crypto Info"
+  },
+  "icons": {
+    "16": "./icons/icon16.png",
+    "48": "./icons/icon48.png",
+    "128": "./icons/icon128.png"
+  },
+  "background": {
+    "scripts": [
+      "vendors/bundle.js",
+      "background/bundle.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "storage",
+    "<all_urls>",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": false,
+      "js": [
+        "content/bundle.js",
+        "vendors/bundle.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    "content/*.css",
+    "content/*.svg",
+    "icons/*.png"
+  ]
+}
