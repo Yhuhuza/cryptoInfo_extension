@@ -25,4 +25,3 @@ pnpm-debug.log*
 node_modules/
 app/
 package-lock.json
-/src/background/utilities/constants.js
