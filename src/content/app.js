@@ -61,38 +61,17 @@ class Crypto {
         newsList: result.articles,
       })
     })
-  } ////Change
+  }
 
-  async updateNote() {
-    await chrome.runtime.sendMessage({action: 'updateNote'}, (result) => {
-      store.commit('update',{
+  multiFunkContent({ request }) {
+    const { contentAction } = request;
+    let backAction = contentAction === 'updateData' ? 'updateNotes' : 'getNotes'
+    let storeAction = contentAction === 'updateData' ? 'update' : 'set';
+    chrome.runtime.sendMessage({action: backAction}, (result) => {
+      store.commit(storeAction,{
         cryptoNotes: result,
       })
     })
-  }
-
-  getNote() {
-    chrome.runtime.sendMessage({action: 'getNotes'}, (result) => {
-      store.commit('set',{
-        cryptoNotes: result,
-      })
-    })
-  }
-
-  setNote() {
-    chrome.runtime.sendMessage({action: 'getNotes'}, (result) => {
-      store.commit('set',{
-        cryptoNotes: result,
-      })
-    })
-  }
-
-  updateData() {
-    chrome.runtime.sendMessage({action: 'updateNotes'}, (notes) => {
-      store.commit('update', {
-        cryptoNotes: notes
-      })
-    });
   }
 
   createContent() {

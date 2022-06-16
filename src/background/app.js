@@ -69,7 +69,8 @@ class Crypto {
     chrome.tabs.query({}, function(tabs) {
       for (let i = 0; i < tabs.length; ++i) {
         chrome.tabs.sendMessage(tabs[i].id, {
-          action: storeAct
+          action: 'multiFunkContent',
+          contentAction: storeAct,
         });
       }
     });

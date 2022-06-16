@@ -32,7 +32,7 @@ export default {
             title: this.noteTitle,
             description: this.noteDescription,
             act: this.idNote ? 'editNote' : 'submitNote',
-            storeAct: this.idNote ? 'editNote' : 'submitNote',
+            storeAct: 'getNote',
           }
         });
         if (this.idNote) this.changeTab(this.pages.notes);
