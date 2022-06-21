@@ -6,7 +6,7 @@ import {
 import {extractCoins, parseCoinsValues} from "@/utilities/parser";
 
 
-export class cryptoRates {
+export class CryptoRates {
   constructor() {
     this.data = null;
     this.interval = null;

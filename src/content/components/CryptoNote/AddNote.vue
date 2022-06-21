@@ -24,7 +24,7 @@ import { changeTab } from "@/utilities/mixins";
 export default {
   methods: {
     submitData() {
-      if (!this.checkFields) {
+      if (!this.isEmptyFields) {
         chrome.runtime.sendMessage({
           action: 'multiFunc',
           data: {
@@ -37,10 +37,10 @@ export default {
         });
         if (this.idNote) this.changeTab(this.pages.notes);
         this.updateData();
+        this.clearFields();
       } else {
         this.showError()
       }
-      this.clearFields();
     },
     clearFields() {
       this.noteDescription = '';
@@ -91,8 +91,8 @@ export default {
     }
   },
   computed: {
-    checkFields() {
-      return ((this.noteDescription === '') && (this.noteTitle === ''));
+    isEmptyFields() {
+      return this.noteDescription === '' && this.noteTitle === '';
     },
     buttonType() {
       return this.idNote

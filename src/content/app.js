@@ -8,7 +8,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { messages } from '../utilities/messages';
-import VueFlagIcon from "vue-flag-icon";
 
 library.add(fas);
 library.add(fab);
@@ -78,7 +77,6 @@ class Crypto {
     const app = this.createShadowRoot().querySelector('#app') || '#app'
     this.content = createApp(App)
         .use(store)
-        .use(VueFlagIcon)
         .use(createI18n({
           locale: 'en',
           fallbackLocale: 'en',

@@ -14,11 +14,6 @@
 <script>
 
 export default {
-  data() {
-    return {
-      languagesList: ['en', 'ru']
-    }
-  },
   methods: {
     changeLanguage(locale) {
       this.$i18n.locale = locale;

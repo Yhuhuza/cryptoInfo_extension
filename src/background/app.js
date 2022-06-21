@@ -1,10 +1,10 @@
-import { cryptoRates } from './collections/cryptoRates.js';
+import { CryptoRates } from './collections/cryptoRates.js';
 import { CryptoNews } from './collections/cryptoNews.js';
-import { CryptoNote } from './collections/CryptoNote';
+import { CryptoNote } from './collections/cryptoNote';
 
 class Crypto {
   constructor() {
-    this.crypto = new cryptoRates;
+    this.crypto = new CryptoRates;
     this.news = new CryptoNews;
     this.note = new CryptoNote;
     this.setEvents();
