@@ -15,16 +15,20 @@
 
 <script>
 import cryptoNews from './NewsCard.vue';
-import { mapState } from 'vuex';
+import { useStore } from "vuex";
+import { computed } from 'vue';
 
 export default {
   components: {
     cryptoNews,
   },
-  computed: {
-    ...mapState([
-        'newsList',
-    ])
+  setup() {
+    const store = useStore();
+    const newsList = computed(() => store.state.newsList);
+
+    return {
+      newsList,
+    }
   },
 }
 

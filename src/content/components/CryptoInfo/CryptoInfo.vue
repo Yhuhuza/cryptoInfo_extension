@@ -13,30 +13,29 @@
 
 <script>
 import cryptoCard from './CryptoCard.vue';
-import { mapState } from "vuex";
+import { computed } from 'vue';
+import { useStore } from "vuex";
 
 export default {
-  methods: {
-    refreshRates() {
+  components: {
+    cryptoCard,
+  },
+  setup () {
+    const store = useStore();
+    const ratesList = computed(() => store.state.ratesList);
+
+    function refreshRates() {
       chrome.runtime.sendMessage({ action: 'instantUpdateRates'}, (result) => {
-        this.$store.commit('update', {
+        store.commit('update', {
           ratesList: result,
         })
       })
     }
-  },
-  components: {
-    cryptoCard,
-  },
-  data() {
-    return {
 
+    return {
+      refreshRates,
+      ratesList,
     }
-  },
-  computed: {
-    ...mapState([
-      'ratesList',
-    ]),
   }
 }
 </script>

@@ -1,17 +1,17 @@
 <template>
   <div class="news-card" v-if="checkImage">
     <div class="image-wrapper">
-      <img class="news-image" :src="this.item.urlToImage"/>
+      <img class="news-image" :src="item.urlToImage"/>
     </div>
     <div class="news-text">
       <div class="title-wrapper">
         <div class="news-title">
-          {{ this.item.title }}
+          {{ item.title }}
         </div>
       </div>
       <div class="description-wrapper">
         <div class="news-description">
-          {{ this.item.description }}
+          {{ item.description }}
         </div>
       </div>
       <div class="news-button">
@@ -28,31 +28,27 @@
 
 <script>
 import { dateFormat } from '@/utilities/parser';
+import { computed } from 'vue';
 
 export default {
-  data() {
-    return {
-      newsImage: this.item.urlTiImage,
-      urlTo: this.item.url,
-    }
-  },
   props: {
     item: {
       type: Object,
       default: () => ({}),
     }
   },
-  computed: {
-    setUrl(){
-      return this.item.url;
-    },
-    setDate() {
-      return dateFormat(this.item.publishedAt);
-    },
-    checkImage() {
-      return this.item.urlToImage;
+  setup(props) {
+    const setUrl = computed(() => props.item.url);
+    const setDate = computed(() => dateFormat(props.item.publishedAt));
+    const checkImage = computed(() => props.item.urlToImage);
+
+    return {
+      setUrl,
+      setDate,
+      checkImage,
+
     }
-  }
+  },
 }
 
 </script>
@@ -108,7 +104,7 @@ height: 50px;
 .news-description {
   text-align: center;
   color: white;
-  font-size: 12px;
+  font-size: 10px;
   padding: 10px 0 0;
   display: -webkit-box;
   -webkit-line-clamp: 4;

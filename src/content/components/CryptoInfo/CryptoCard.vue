@@ -6,7 +6,7 @@
      </div>
       <div class="coin-fluctation">
         {{ $t('rates.last24') }}
-        <font-awesome-icon v-if="!arrowUpDown" :icon="['fas', 'arrow-down']"/>
+        <font-awesome-icon v-if="!dayFluctation" :icon="['fas', 'arrow-down']"/>
         <font-awesome-icon v-else :icon="['fas', 'arrow-up']" />
         {{ item.downUpCoin }}%
       </div>
@@ -24,7 +24,7 @@
     </div>
     <div class="coins-fluctation">
       {{ $t('rates.day7') }}
-      <font-awesome-icon v-if="!arrowLonfFluctation" :icon="['fas', 'arrow-down']"/>
+      <font-awesome-icon v-if="!weekFluctation" :icon="['fas', 'arrow-down']"/>
       <font-awesome-icon v-else :icon="['fas', 'arrow-up']" />
       {{ item.downUpCoins }}%
     </div>
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { computed } from 'vue';
 
 export default {
   props: {
@@ -40,14 +41,15 @@ export default {
       default: () => ({}),
     }
   },
-  computed: {
-    arrowUpDown() {
-      return this.item.downUpCoin > 0;
-    },
-    arrowLonfFluctation() {
-      return this.item.downUpCoins > 0;
+  setup(props) {
+    const dayFluctation = computed(() => props.item.downUpCoin > 0);
+    const weekFluctation = computed(() => props.item.downUpCoins > 0);
+
+    return {
+     dayFluctation,
+      weekFluctation,
     }
-  }
+  },
 }
 </script>
 
