@@ -74,14 +74,17 @@ class Crypto {
   }
 
   createContent() {
+    const i18n = createI18n({
+      locale: 'en',
+      fallbackLocale: 'en',
+      messages
+    });
     const app = this.createShadowRoot().querySelector('#app') || '#app'
     this.content = createApp(App)
         .use(store)
-        .use(createI18n({
-          locale: 'en',
-          fallbackLocale: 'en',
-          messages
-    })).component('FontAwesomeIcon', FontAwesomeIcon).mount(app);
+        .use(i18n)
+        .component('FontAwesomeIcon', FontAwesomeIcon)
+        .mount(app);
   }
 }
 

@@ -16,25 +16,25 @@
 
 <script>
 import CryptoNotes from './CryptoNotes.vue';
-import { mapState } from 'vuex';
+import { useStore } from 'vuex';
 import { PAGES } from '../../../utilities/constants';
 import { changeTab } from "@/utilities/mixins";
+import { computed, onMounted } from 'vue';
 
 export default {
   components: {
     CryptoNotes,
   },
-  data() {
-    return {
-      pages: PAGES,
-    }
-  },
   mixins: [
     changeTab,
   ],
-  methods: {
-    updateNotes() {
-      this.$store.commit('update', {
+  setup() {
+    const store = useStore();
+    const cryptoNotes = computed(() => store.state.cryptoNotes);
+    const page = computed(() => store.state.page);
+
+    function updateNotes() {
+      store.commit('update', {
         cryptoNotes: null,
       });
       chrome.runtime.sendMessage({
@@ -44,17 +44,47 @@ export default {
           storeAct: 'setNote',
         }
       });
-    },
+    }
+
+    onMounted(() => {
+      updateNotes();
+    })
+
+    return {
+      pages: PAGES,
+      updateNotes,
+      cryptoNotes,
+      page,
+    }
   },
-  mounted() {
-    this.updateNotes()
-  },
-  computed: {
-  ...mapState([
-      'cryptoNotes',
-      'page',
-    ]),
-  },
+  // data() {
+  //   return {
+  //     pages: PAGES,
+  //   }
+  // },
+  // methods: {
+  //   updateNotes() {
+  //     this.$store.commit('update', {
+  //       cryptoNotes: null,
+  //     });
+  //     chrome.runtime.sendMessage({
+  //       action: 'multiFunc',
+  //       data: {
+  //         act: 'fetchNotes',
+  //         storeAct: 'setNote',
+  //       }
+  //     });
+  //   },
+  // },
+  // mounted() {
+  //   this.updateNotes()
+  // },
+  // computed: {
+  // ...mapState([
+  //     'cryptoNotes',
+  //     'page',
+  //   ]),
+  // },
 }
 </script>
 
