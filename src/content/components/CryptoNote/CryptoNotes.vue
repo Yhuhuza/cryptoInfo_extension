@@ -14,29 +14,26 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import { PAGES } from '../../../utilities/constants';
-import { changeTab } from "@/utilities/mixins";
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 
 export default {
-  data() {
-    return {
-      pages: PAGES,
-      noteDescription: this.item.description,
-      titleNote: this.item.title,
-    }
-  },
   props: {
     item: {
       type: Object,
       default: () => ({}),
     }
   },
-  mixins: [
-    changeTab,
-  ],
-  methods: {
-    deleteNote(note) {
+  setup(props) {
+    const store = useStore();
+    let noteDescription = props.item.noteDescription;
+    let noteTitle = props.item.noteTitle;
+
+    const cryptoNotes = computed(() => store.state.cryptoNotes);
+    const checkForDisplay = computed(() => noteTitle && noteDescription);
+
+    function deleteNote(note) {
       chrome.runtime.sendMessage({
         action: 'multiFunc',
         data: {
@@ -45,23 +42,31 @@ export default {
           storeAct: 'getNote',
         }
       });
-    },
-    editNote() {
-      this.$store.commit('set', {
-        editNote:  this.item.id,
-        }
-      );
-      this.changeTab(this.pages.add);
-    },
-  },
-  computed: {
-    ...mapState([
-        'cryptoNotes'
-    ]),
-    checkForDisplay() {
-      return (this.item.title && this.item.description);
     }
-  }
+
+    function editNote() {
+      store.commit('set', {
+          editNote:  props.item.id
+      });
+      changeTab(PAGES.add);
+    }
+
+    function changeTab(page) {
+      store.commit('update', {
+        page: page,
+      });
+    }
+
+    return {
+      pages: PAGES,
+      noteTitle,
+      noteDescription,
+      cryptoNotes,
+      checkForDisplay,
+      deleteNote,
+      editNote,
+    }
+  },
 }
 </script>
 

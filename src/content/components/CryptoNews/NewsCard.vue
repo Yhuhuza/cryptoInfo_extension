@@ -46,7 +46,6 @@ export default {
       setUrl,
       setDate,
       checkImage,
-
     }
   },
 }
@@ -120,7 +119,7 @@ height: 50px;
 .read-more-button {
   margin-top: 10px;
   width: 150px;
-  height: 35px;
+  min-height: 35px;
   background-color: #333;
   border: 1px #00FFFF solid;
   cursor: pointer;

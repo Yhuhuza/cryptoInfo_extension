@@ -3,18 +3,22 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import MainMenu from './components/MainMenu/MainMenu.vue'
+import MainMenu from './components/MainMenu/MainMenu.vue';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 
 export default {
-  computed:{
-  ...mapState([
-     'showApp'
-    ])
-  },
   components: {
     MainMenu,
-  }
+  },
+  setup() {
+    const store = useStore();
+    const showApp = computed(() => store.state.showApp);
+
+    return {
+      showApp,
+    }
+  },
 }
 </script>
 

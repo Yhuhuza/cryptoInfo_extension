@@ -76,11 +76,17 @@ class Crypto {
   createContent() {
     const i18n = createI18n({
       locale: 'en',
+      legacy: false,
       fallbackLocale: 'en',
       messages
     });
     const app = this.createShadowRoot().querySelector('#app') || '#app'
-    this.content = createApp(App)
+    this.content = createApp(App, {
+      setup() {
+        const { t } = VueI18n.useI18n()
+        return { t }
+      }
+    })
         .use(store)
         .use(i18n)
         .component('FontAwesomeIcon', FontAwesomeIcon)
