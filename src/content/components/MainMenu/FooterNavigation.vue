@@ -41,23 +41,27 @@
 </template>
 
 <script>
-
-import { mapState } from "vuex";
 import { PAGES } from "@/utilities/constants";
-import { changeTab } from "@/utilities/mixins";
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 
 export default {
-  data() {
+  setup() {
+    const store = useStore();
+    const page = computed(() => store.state.page);
+
+    function changeTab(page) {
+      store.commit('update', {
+        page: page,
+      });
+    }
+
     return {
       pages: PAGES,
+      page,
+      changeTab,
     }
   },
-  mixins: [
-    changeTab,
-  ],
-  ...mapState([
-      'page',
-    ]),
 }
 </script>
 

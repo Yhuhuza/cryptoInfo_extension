@@ -10,7 +10,8 @@ import CryptoNews from '../CryptoNews/CryptoNews.vue';
 import CryptoNote from '../CryptoNote/CryptoNote.vue';
 import AddNote from '../CryptoNote/AddNote.vue';
 import CryptoSettings from '../CryptoSettings/CryptoSettings.vue';
-import { mapState } from "vuex";
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 
 export default {
   components: {
@@ -20,10 +21,13 @@ export default {
     CryptoSettings,
     AddNote,
   },
-  computed: {
-    ...mapState([
-      'page',
-    ]),
+  setup() {
+    const store = useStore();
+    const page = computed(() => store.state.page);
+
+    return {
+      page
+    }
   },
 }
 </script>

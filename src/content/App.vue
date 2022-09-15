@@ -30,4 +30,9 @@ export default {
   right: 10px;
   z-index: 999999999999999999999;
 }
+
+@font-face {
+  font-family: "Gilroy";
+  src: url('../assets/fonts/Gilroy-Regular.ttf') format("truetype");
+}
 </style>

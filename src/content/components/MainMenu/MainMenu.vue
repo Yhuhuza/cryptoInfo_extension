@@ -25,7 +25,7 @@ export default {
 .main-menu {
   display: flex;
   flex-direction: column;
-  height: 550px;
+  height: 600px;
   width: 400px;
   border-radius: 30px;
 }

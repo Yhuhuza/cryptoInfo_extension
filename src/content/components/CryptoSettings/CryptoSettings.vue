@@ -1,11 +1,11 @@
 <template>
   <div class="settings">
     <div class="set-settings">
-      <h4 class="set-languages">{{ lang }}</h4>
+      <h4 class="set-languages">{{ $t('settings.lang') }}</h4>
       <div class="set-lang">
-        <a href="#" @click="changeLanguage('ru')">Русский</a>
-        <a href="#" @click="changeLanguage('en')">English</a>
-        <a href="#" @click="changeLanguage('ch')">中国人</a>
+        <a href="#" @click="changeLang('ru')">Русский</a>
+        <a href="#" @click="changeLang('en')">English</a>
+        <a href="#" @click="changeLang('ch')">中国人</a>
       </div>
     </div>
   </div>
@@ -13,31 +13,17 @@
 
 <script>
 import { useI18n } from "vue-i18n";
-import { messages } from '../../../utilities/messages';
-import { computed } from 'vue';
 
 export default {
   setup() {
-    // const { t } = useI18n({
-    //   locale: 'en',
-    //   messages
-    // });
+    const { locale } = useI18n();
 
-    const { t } = useI18n({});
-    // const lang = computed(() => t('settings.lang'))
-    console.log('LANG:', t);
-
-    function changeLanguage(locale) {
-
+    function changeLang(lang) {
+      locale.value = lang;
     }
 
     return {
-
-    }
-  },
-  methods: {
-    changeLanguage(locale) {
-      this.$i18n.locale = locale;
+      changeLang,
     }
   },
 }
