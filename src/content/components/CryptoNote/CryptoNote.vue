@@ -18,16 +18,12 @@
 import CryptoNotes from './CryptoNotes.vue';
 import { useStore } from 'vuex';
 import { PAGES } from '../../../utilities/constants';
-import { changeTab } from "@/utilities/mixins";
 import { computed, onMounted } from 'vue';
 
 export default {
   components: {
     CryptoNotes,
   },
-  mixins: [
-    changeTab,
-  ],
   setup() {
     const store = useStore();
     const cryptoNotes = computed(() => store.state.cryptoNotes);
@@ -46,6 +42,12 @@ export default {
       });
     }
 
+    function changeTab(page) {
+      store.commit('update', {
+        page: page
+      });
+    }
+
     onMounted(() => {
       updateNotes();
     })
@@ -53,38 +55,11 @@ export default {
     return {
       pages: PAGES,
       updateNotes,
+      changeTab,
       cryptoNotes,
       page,
     }
   },
-  // data() {
-  //   return {
-  //     pages: PAGES,
-  //   }
-  // },
-  // methods: {
-  //   updateNotes() {
-  //     this.$store.commit('update', {
-  //       cryptoNotes: null,
-  //     });
-  //     chrome.runtime.sendMessage({
-  //       action: 'multiFunc',
-  //       data: {
-  //         act: 'fetchNotes',
-  //         storeAct: 'setNote',
-  //       }
-  //     });
-  //   },
-  // },
-  // mounted() {
-  //   this.updateNotes()
-  // },
-  // computed: {
-  // ...mapState([
-  //     'cryptoNotes',
-  //     'page',
-  //   ]),
-  // },
 }
 </script>
 
