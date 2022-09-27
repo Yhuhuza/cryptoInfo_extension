@@ -1,40 +1,31 @@
 <template>
   <div class="main-footer">
     <div class="footer-navigation">
-      <ul>
+      <ul class="list-icons">
         <li class="list" @click="changeTab(pages.info)">
-          <a href="#">
-            <span class="icon">
-              <font-awesome-icon :icon="['fas', 'coins']"></font-awesome-icon>
-            </span>
-            <span class="text">{{ $t('footer.rates') }}</span>
-          </a>
+          <img
+            class="list-rates"
+            alt="#"
+            src="../../../assets/footerLogo/rates-sign.svg"
+            :class = "{ active : page === 'CryptoInfo' }"
+          />
         </li>
         <li class="list" @click="changeTab(pages.news)">
-          <a href="#">
-            <span class="icon">
-              <font-awesome-icon :icon="['fas', 'newspaper']"></font-awesome-icon>
-            </span>
-            <span class="text">{{ $t('footer.news') }}</span>
-          </a>
+          <img
+            class="list-news"
+            alt="#"
+            src="../../../assets/footerLogo/news-sign.svg"
+            :class = "{ active : page === 'CryptoNews' }"
+          />
         </li>
         <li class="list"  @click="changeTab(pages.notes)">
-          <a href="#">
-            <span class="icon">
-              <font-awesome-icon :icon="['fas', 'pen']"></font-awesome-icon>
-            </span>
-            <span class="text">{{ $t('footer.notes') }}</span>
-          </a>
+          <img
+            class="list-note"
+            alt="#"
+            src="../../../assets/footerLogo/note-sign.svg"
+            :class = "{ active : page === 'CryptoNote' }"
+          />
         </li>
-        <li class="list" @click="changeTab(pages.set)">
-          <a href="#">
-            <span class="icon">
-              <font-awesome-icon :icon="['fas', 'gear']"></font-awesome-icon>
-            </span>
-            <span class="text">{{ $t('footer.set') }}</span>
-          </a>
-        </li>
-        <div class="indicator"></div>
       </ul>
     </div>
   </div>
@@ -75,97 +66,35 @@ export default {
 }
 
 .main-footer {
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  background: #333;
-  display: flex;
-  justify-content: center;
-  height: 12%;
-  border-top: 2px solid #00FFFF;
-}
-
-.footer-navigation ul{
-  display: flex;
-}
-
-.footer-navigation ul li{
-  position: relative;
-  list-style: none;
-  text-decoration: none;
-  width: 100px;
-  height: 70px;
-  z-index: 1;
-}
-
-.footer-navigation ul li a {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: #fff;
-  text-align: center;
-}
-
-svg {
-  width: 30px;
-  color: grey;
-}
-
-.footer-navigation ul li:nth-child(1):hover{
-  background: #ffa801;
-  border-bottom-left-radius: 25px;
-  height: 65px;
-  cursor: pointer;
-}
-
-.footer-navigation ul li:nth-child(2):hover {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: #1F2125;
   height: 64px;
-  background: #ffa801;
-  cursor: pointer;
 }
 
-.footer-navigation ul li:nth-child(3):hover {
-  height: 64px;
-  background: #ffa801;
-  cursor: pointer;
+.list-icons{
+  padding: 8px 68px 0 68px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.footer-navigation ul li:nth-child(4):hover {
-  height: 65px;
-  background: #ffa801;
-  border-bottom-right-radius: 25px;
-  cursor: pointer;
+.list-rates, .list-news, .list-note {
+  height: 48px;
+  width: 48px;
 }
 
-.footer-navigation ul li a .icon svg{
-  position: relative;
-  line-height: 75px;
+.list-rates:hover, .list-news:hover, .list-note:hover {
+  border-radius: 5px;
   transition: 0.5s;
-  margin-top: 18px;
-  margin-right: 3px;
-  font-size: 30px;
+  background-color: #7276FF;
+  cursor: pointer;
 }
 
-.footer-navigation ul li:hover a .icon svg{
-  width: 15px;
-  transform: translateY(-6px);
+.active {
+  border-radius: 5px;
+  transition: 0.5s;
+  background-color: #7276FF;
 }
 
-.footer-navigation ul li a .text {
-  position: absolute;
-  top: 35px;
-  font-size: 12px;
-  color: white;
-  bottom: 18px;
-  font-weight: 500;
-  transition: 0.25s;
-  text-transform: uppercase;
-  transform: scale(0);
-}
 
-.footer-navigation ul li:hover a .text {
-  margin-top: 5px;
-  transform: scale(1);
-}
 </style>
