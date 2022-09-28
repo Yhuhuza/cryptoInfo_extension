@@ -36,28 +36,13 @@ export default {
 <style scoped>
 
 .main-body {
-  border-left: 2px solid #333;
-  border-right: 2px solid #333;
-  border-top: 2px solid #333;
   height: 76%;
-  background: #333;
+  background: #1F2125;
   overflow: scroll;
 }
 
 ::-webkit-scrollbar {
-  width: 2px;
-  height: 0;
-  /*color: orange;*/
-}
-
-::-webkit-scrollbar-track {
-  background-color: #333;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 15px;
-  height: 5px;
-  background-color: orange;
+  display: none;
 }
 
 </style>

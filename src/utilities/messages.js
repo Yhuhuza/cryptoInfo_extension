@@ -22,6 +22,7 @@ export const messages = {
       readMore: 'Read More',
     },
     rates: {
+      rates: 'Rates',
       refreshRates: 'Refresh Rates',
       last24: 'Last 24h:',
       price: 'Price:',
@@ -52,6 +53,7 @@ export const messages = {
       readMore: 'Перейти к источнику',
     },
     rates: {
+      rates: 'Рейты',
       refreshRates: 'Обновить рейты',
       last24: 'Последние 24h:',
       price: 'Цена:',
@@ -82,6 +84,7 @@ export const messages = {
       readMore: '阅读更多',
     },
     rates: {
+      rates: '費率',
       refreshRates: '刷新率',
       last24: '最后 24 小时：',
       price: '价格：',
