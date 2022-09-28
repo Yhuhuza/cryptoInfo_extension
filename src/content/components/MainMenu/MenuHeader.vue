@@ -157,4 +157,15 @@ a:hover {
 .closing-language-sign:hover {
   background: #7276FF;
 }
+
+.languages-list:hover {
+  color:  #7276FF;
+  text-decoration: underline;
+}
+
+.closing-sign:hover {
+  transition: 0.5s;
+  background: #7276FF;
+  border-radius: 5px;
+}
 </style>

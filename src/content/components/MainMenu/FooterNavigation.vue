@@ -96,5 +96,8 @@ export default {
   background-color: #7276FF;
 }
 
+ul {
+  list-style-type: none;
+}
 
 </style>
