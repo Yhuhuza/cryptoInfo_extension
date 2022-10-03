@@ -1,7 +1,6 @@
 const getDate = () => {
     return new Date().toLocaleDateString('en-ca')
 }
-console.log(getDate());
 
 // export const CRYPTO_RATES_API = 'a80e850f-aef8-4994-ae7c-64d611ec0cc9';
 export const CRYPTO_RATES_API = '7b0a5a28-69cf-4889-8b81-7368ff5f268e';
