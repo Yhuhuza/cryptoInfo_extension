@@ -5,7 +5,10 @@ export class CryptoNews {
   constructor() {
     this.data = null;
     this.interval = null;
-    this.fetchNews();
+    setInterval(() => {
+        this.fetchNews();
+    }, 1000 * 60 * 60 * 24);
+      this.fetchNews();
   }
 
   fetchNews() {

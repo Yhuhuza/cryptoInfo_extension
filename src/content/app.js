@@ -94,4 +94,4 @@ class Crypto {
   }
 }
 
-window.cryptoInfoContent = new Crypto();
+global.cryptoInfoContent = new Crypto();

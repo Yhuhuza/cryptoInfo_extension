@@ -62,11 +62,15 @@ div {
 }
 
 .background-rates {
-  border: 2px solid orange;
-  background: #333;
-  margin: 10px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   color: white;
-  height: 100px;
+  height: 175px;
+  max-width: 185px;
+  background-color: #2A2C31;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
 }
 
 .coins-name, .coins-info {

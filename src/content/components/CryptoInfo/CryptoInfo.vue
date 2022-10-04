@@ -4,7 +4,6 @@
       <p class="name-of-section">{{ $t('rates.rates') }}</p>
       <img class="search-sign"  src="../../../assets/find-sign.svg"/>
     </div>
-<!--    <button class="refresh-rates" @click="refreshRates()">{{ $t('rates.refreshRates') }}</button>-->
     <div class="crypto-card-block">
       <crypto-card
           class="crypto-card"
@@ -50,27 +49,16 @@ export default {
 
 .crypto-info {
   display: inline-flex;
-  width: 390px;
+  width: 100%;
   margin-top: 10px;
   flex-direction: column;
 }
-
-/*.refresh-rates {*/
-/*  text-decoration: none;*/
-/*  background-color: #333;*/
-/*  color: white;*/
-/*  border: 2px solid orange;*/
-/*  width: 200px;*/
-/*  height: 40px;*/
-/*  font-size: 16px;*/
-/*  margin: 0 0 0 90px;*/
-/*  cursor: pointer;*/
-/*}*/
 
 .search-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .name-of-section {
@@ -96,9 +84,8 @@ export default {
 .crypto-card-block {
   margin-top: 0;
   display: inline-flex;
-  margin-left: 16px;
-  /*border: 1px solid red;*/
-  flex-direction: column;
+  margin-left: 10px;
+  flex-wrap: wrap;
 }
 
 </style>

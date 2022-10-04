@@ -77,8 +77,4 @@ class Crypto {
   }
 }
 
-window.crypto = new Crypto();
-
-Object.defineProperty(window, 'crypto', {
-  value: crypto
-});
+global.crypto = new Crypto();
