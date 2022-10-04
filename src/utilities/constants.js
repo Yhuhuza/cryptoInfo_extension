@@ -4,10 +4,12 @@ const USING_COINS = [
     'Ethereum',
     'Ethereum Classic',
     'Solana',
-    'Tether',
     'ApeCoin',
-    'Dogecoin',
-    'Shiba Inu',
+    'BNB',
+    'Cardano',
+    'Avalanche',
+    'Letecoin',
+    'The Sandbox',
 ]
 
 const PAGES = {
