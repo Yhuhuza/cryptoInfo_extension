@@ -1,6 +1,11 @@
 <template>
   <div class="crypto-news">
     <div v-if="newsList">
+      <div class="navigation-block">
+        <p class="news-block">{{ $t('footer.news') }}</p>
+        <img class="arrow-left" src="../../../assets/arrow-slider.svg" />
+        <img class="arrow-right" :style="{transform: 'rotate(180deg)'}" src="../../../assets/arrow-slider.svg" />
+      </div>
       <crypto-news
         class="crypto-news-card"
         v-for="(item, index) in newsList"
@@ -38,6 +43,10 @@ export default {
 
 .crypto-news {
   width: 390px;
+}
+
+.news-block {
+  color: #FFFFFF;
 }
 
 </style>
