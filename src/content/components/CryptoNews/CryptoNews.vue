@@ -12,8 +12,7 @@
         :key="index"
         :item="item"
         :type="true"
-      >
-      </crypto-news>
+      />
     </div>
   </div>
 </template>
@@ -53,7 +52,7 @@ export default {
   display: flex;
   align-items: center;
   margin-left: 18px;
-  margin-bottom: 23px;
+  height: 66px;
 }
 
 .news-block {
