@@ -1,26 +1,32 @@
 <template>
-  <div class="news-card" v-if="checkImage">
-    <div class="image-wrapper">
-      <img class="news-image" :src="item.urlToImage"/>
+  <transition name="slide-in">
+    <div
+        class="news-card"
+        v-if="checkImage"
+        v-show = "currentSlide === index"
+    >
+      <div class="image-wrapper">
+        <img class="news-image" :src="item.urlToImage"/>
+      </div>
+      <div class="news-text">
+        <div class="title-wrapper">
+          <p class="news-title">
+            {{ limitStr(item.title, 55) }}
+          </p>
+        </div>
+        <div class="description-wrapper">
+          <p class="news-description">
+            {{ limitStr(item.description, 70) }}
+          </p>
+        </div>
+        <div class="news-button">
+          <button class="read-more-button"><a  target="_blank" :href="setUrl">
+            {{ $t('news.readMore') }}
+          </a></button>
+        </div>
+      </div>
     </div>
-    <div class="news-text">
-      <div class="title-wrapper">
-        <p class="news-title">
-          {{ limitStr(item.title, 60) }}
-        </p>
-      </div>
-      <div class="description-wrapper">
-        <p class="news-description">
-          {{ limitStr(item.description, 80) }}
-        </p>
-      </div>
-      <div class="news-button">
-        <button class="read-more-button"><a  target="_blank" :href="setUrl">
-          {{ $t('news.readMore') }}
-        </a></button>
-      </div>
-    </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -31,7 +37,9 @@ export default {
     item: {
       type: Object,
       default: () => ({}),
-    }
+    },
+    currentSlide: Number,
+    index: Number,
   },
   setup(props) {
     const setUrl = computed(() => props.item.url);
@@ -117,7 +125,7 @@ p {
   background: #7276FF;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 24px;
+  margin-top: 8px;
   border: none;
 }
 
@@ -127,5 +135,18 @@ p {
   font-size: 16px;
   color: #FFFFFF;
   text-decoration: none;
+}
+
+.slide-in-enter-active,
+.slide-in-leave-active {
+  transition: all 1s ease-in-out;
+}
+
+.slide-in-enter-from {
+  transform: translateX(-100%);
+}
+
+.slide-in-leave-to {
+  transform: translateX(-100%);
 }
 </style>

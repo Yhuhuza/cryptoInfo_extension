@@ -3,14 +3,25 @@
     <div v-if="newsList">
       <div class="navigation-block">
         <p class="news-block">{{ $t('footer.news') }}</p>
-        <img class="arrow-left" src="../../../assets/arrow-slider.svg" />
-        <img class="arrow-right" :style="{transform: 'rotate(180deg)'}" src="../../../assets/arrow-slider.svg" />
+        <img
+            class="arrow-left"
+            src="../../../assets/arrow-slider.svg"
+            @click="previousSlide"
+        />
+        <img
+            class="arrow-right"
+            :style="{transform: 'rotate(180deg)'}"
+            src="../../../assets/arrow-slider.svg"
+            @click="nextSlide"
+        />
       </div>
       <crypto-news
         class="crypto-news-card"
         v-for="(item, index) in newsList"
-        :key="index"
+        :key="`item-${index}`"
         :item="item"
+        :current-slide="currentSlide"
+        :index="index"
         :type="true"
       />
     </div>
@@ -25,6 +36,31 @@ import { computed } from 'vue';
 export default {
   components: {
     cryptoNews,
+  },
+  data: () => ({
+    currentSlide: 0,
+    sliderInterval: null,
+  }),
+  mounted() {
+    this.sliderInterval = setInterval(() => {
+      this.nextSlide();
+    }, 10000);
+  },
+  beforeUnmount() {
+    clearInterval(this.sliderInterval);
+  },
+  methods: {
+    setCurrentSlide(index) {
+      this.currentSlide = index;
+    },
+    nextSlide() {
+      const index = this.currentSlide < this.newsList.length - 1 ? this.currentSlide + 1 : 0;
+      this.setCurrentSlide(index);
+    },
+    previousSlide() {
+      const index = this.currentSlide > 0 ? this.currentSlide - 1 : this.newsList.length - 1;
+      this.setCurrentSlide(index);
+    }
   },
   setup() {
     const store = useStore();
@@ -42,6 +78,8 @@ export default {
 
 .crypto-news {
   width: 390px;
+  height: 455px;
+  overflow: hidden;
 }
 
 .news-block {
