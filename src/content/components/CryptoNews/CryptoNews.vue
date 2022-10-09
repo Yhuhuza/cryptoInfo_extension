@@ -49,4 +49,32 @@ export default {
   color: #FFFFFF;
 }
 
+.navigation-block {
+  display: flex;
+  align-items: center;
+  margin-left: 18px;
+  margin-bottom: 23px;
+}
+
+.news-block {
+  /*font-family: 'Gilroy';*/
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.arrow-left {
+  margin-left: 232px;
+  cursor: pointer;
+}
+
+.arrow-right {
+  cursor: pointer;
+  border: 1px solid #7276FF;
+  height: 28px;
+  border-radius: 5px;
+  margin-right: 16px;
+}
+
 </style>
