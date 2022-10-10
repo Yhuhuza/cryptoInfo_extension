@@ -107,7 +107,7 @@ p {
 .news-title {
   font-size: 20px;
   color: #FFFFFF;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .news-description {
