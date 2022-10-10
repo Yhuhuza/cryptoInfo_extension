@@ -19,7 +19,7 @@
 <script>
 import imageLogo  from '../../../assets/headerLogo/main-logo.svg';
 import closeSign  from '../../../assets/headerLogo/close-sign.svg';
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import { ref } from 'vue';
 import { useStore } from 'vuex';
 import { useI18n } from "vue-i18n";
@@ -35,10 +35,6 @@ export default {
       if (language === 'ch') return 'CH';
       if (language === 'ru') return 'RU';
       return 'EN';
-    })
-
-    onMounted(() => {
-
     })
 
     function changeLang(lang) {
