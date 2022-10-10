@@ -127,12 +127,13 @@ a:hover {
 }
 
 .set-settings {
-  position: absolute;
+  position: relative;
   width: 398px;
-  top: 58px;
+  top: 10px;
   height: 55px;
-  border-top: 1.5px solid  #7276FF;
+  border-top: 1.5px solid #7276FF;
   transition: 0.5s;
+  z-index: 9999;
 }
 
 .set-lang {
