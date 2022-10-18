@@ -16,7 +16,9 @@ export const messages = {
       clearFields: 'Clear fields',
       submitNote: 'Submit',
       placeType: 'Type here your note',
-      placeTitle: 'Title of note'
+      placeTitle: 'Title of note',
+      addNote: 'Add new',
+      updateNote: 'Update',
     },
     news: {
       readMore: 'Read More',
@@ -47,7 +49,9 @@ export const messages = {
       clearFields: 'Очистить поля',
       submitNote: 'Готово',
       placeType: 'Напечатай здесь заметку',
-      placeTitle: 'Заголовок заметки'
+      placeTitle: 'Заголовок заметки',
+      addNote: 'Добавить новую',
+      updateNote: 'Обновить',
     },
     news: {
       readMore: 'Перейти к источнику',
@@ -78,7 +82,9 @@ export const messages = {
       clearFields: '清除字段',
       submitNote: '提交',
       placeType: '在这里输入你的笔记',
-      placeTitle: '笔记标题'
+      placeTitle: '笔记标题',
+      addNote: '添新',
+      updateNote: '更新',
     },
     news: {
       readMore: '阅读更多',
