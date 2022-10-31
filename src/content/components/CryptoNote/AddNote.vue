@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="wrapper-header">
-      <img class="back-sign" @click="changeTab(pages.notes)" src="../../../assets/left-arrow.svg" alt="#" />
+      <img class="go-back" @click="changeTab(pages.notes)" src="../../../assets/left-arrow.svg" alt="#" />
       <h3 class="title-note">{{ $t('notes.note') }}</h3>
     </div>
       <input  class="note-title" name="titleNote" :placeholder="$t('notes.placeTitle')" v-model.trim="noteTitle"/>
@@ -75,7 +75,7 @@ export default {
 
     function showError() {
       errorMessage.value = true;
-      setTimeout(() => errorMessage.value = false, 3000);
+      setTimeout(() => errorMessage.value = false, 300000);
     }
 
     function submitData() {
@@ -128,6 +128,7 @@ export default {
   justify-content: flex-start;
   align-content: center;
   margin-bottom: 40px;
+  margin-left: 16px;
 }
 
 .notes-buttons {
@@ -163,34 +164,35 @@ export default {
   font-family: 'Roboto',serif;
   font-size: 24px;
   padding: 0 160px;
-  margin: 8px -22px;
+  margin: 8px -40px;
 }
 
 .note-title {
   height: 40px;
-  width: 325px;
-  margin-left: 20px;
+  width: 342px;
+  margin-left: 16px;
   margin-bottom: 20px;
-  border-radius: 6px;
-  border: 1px solid #7276FF;
+  border-radius: 5px;
+  border: none;
   padding-left: 10px;
-  background: inherit;
+  background: #2A2B30;
+;
   color: #FFFFFF;
   font-size: 16px;
 }
 
 .input-field {
-  border: 1px solid #7276FF;
+  border: none;
   display: block;
   height: 140px;
-  width: 320px;
+  width: 335px;
   font-size: 16px;
   padding: 10px;
   resize: none;
   margin-bottom: 20px;
-  margin-left: 20px;
-  border-radius: 6px;
-  background: inherit;
+  margin-left: 16px;
+  border-radius: 5px;
+  background: #2A2B30;
   color: #FFFFFF;
 }
 
@@ -202,10 +204,20 @@ export default {
   background-color: #7276FF;
   border-radius: 6px;
   font-size: 20px;
-  height: 80px;
+  height: 70px;
   width: 300px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
+.go-back {
+  cursor: pointer;
+  z-index: 2;
+}
+
+.go-back:hover {
+  background-color: #7276FF;
+  border-radius: 5px;
+}
 </style>

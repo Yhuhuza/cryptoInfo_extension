@@ -3,13 +3,15 @@
     <div class="notes-title">
       {{ $t('footer.notes') }}
     </div>
-    <crypto-notes
+    <div class="wrapper-cards">
+      <crypto-notes
         class="crypto-note-card"
         v-for="(item, index) in cryptoNotes"
         :key="index"
         :item="item"
         :type="true"
-    ></crypto-notes>
+      ></crypto-notes>
+    </div>
     <div class="notes">
       <div class="wrapper-add">
         <button class="add-note" @click="changeTab(pages.add)">
@@ -94,6 +96,11 @@ export default {
   line-height: 29px;
   color: #FFFFFF;
 }
+.wrapper-cards {
+  height: 300px;
+  overflow: scroll;
+  margin-bottom: 20px;
+}
 
 .notes {
   display: flex;
@@ -101,7 +108,7 @@ export default {
   justify-content: space-between;
   border-radius: 10px;
   margin-bottom: 20px;
-  position: relative;
+  position: static;
   top: 215px;
 }
 
