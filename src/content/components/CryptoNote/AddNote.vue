@@ -19,14 +19,10 @@
 <script>
 import { useStore } from 'vuex';
 import { PAGES } from '@/utilities/constants';
-import { changeTab } from "@/utilities/mixins";
 import { ref, computed, onMounted } from "vue";
 import { useI18n } from 'vue-i18n';
 
 export default {
-  mixins: [
-    changeTab,
-  ],
   setup() {
     const store = useStore();
     const { t } = useI18n();
@@ -64,6 +60,12 @@ export default {
       });
     }
 
+    function changeTab(page) {
+      store.commit('update', {
+        page: page
+      });
+    }
+
     function clearFields() {
       noteDescription.value = '';
       noteTitle.value = '';
@@ -72,13 +74,6 @@ export default {
     function showError() {
       errorMessage.value = true;
       setTimeout(() => errorMessage.value = false, 2000);
-    }
-
-    function changeTab(page) {
-      store.commit('update', {
-        editNote: null,
-        page: page
-      });
     }
 
     function submitData() {

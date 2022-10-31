@@ -30,7 +30,7 @@
 <script>
 import CryptoNotes from './CryptoNotes.vue';
 import { useStore } from 'vuex';
-import { PAGES } from '../../../utilities/constants';
+import { PAGES } from '@/utilities/constants';
 import { computed, onMounted } from 'vue';
 
 export default {
