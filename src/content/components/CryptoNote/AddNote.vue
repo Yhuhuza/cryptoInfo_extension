@@ -5,14 +5,16 @@
         {{ $t('notes.warning') }}
       </div>
     </div>
-    <font-awesome-icon class="back-note" @click="changeTab(pages.notes)" :icon="['fas', 'arrow-left']"></font-awesome-icon>
-    <h3 class="title-note">{{ $t('notes.note') }}</h3>
+    <div class="wrapper-header">
+      <img class="back-sign" @click="changeTab(pages.notes)" src="../../../assets/left-arrow.svg" alt="#" />
+      <h3 class="title-note">{{ $t('notes.note') }}</h3>
+    </div>
       <input  class="note-title" name="titleNote" :placeholder="$t('notes.placeTitle')" v-model.trim="noteTitle"/>
       <textarea :placeholder="$t('notes.placeType')" class="input-field" v-model.trim="noteDescription"></textarea>
-      <div  class="notes-buttons">
+    <div  class="notes-buttons">
         <button class="submit-button" @click="submitData">{{ buttonType }}</button>
         <button class="update-button" @click="clearFields">{{ $t('notes.clearFields') }}</button>
-      </div>
+    </div>
   </div>
 </template>
 
@@ -73,7 +75,7 @@ export default {
 
     function showError() {
       errorMessage.value = true;
-      setTimeout(() => errorMessage.value = false, 2000);
+      setTimeout(() => errorMessage.value = false, 3000);
     }
 
     function submitData() {
@@ -117,6 +119,43 @@ export default {
 
 .add-note {
   margin-left: 7px;
+  position: relative;
+}
+
+.wrapper-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+  margin-bottom: 40px;
+}
+
+.notes-buttons {
+  display: flex;
+  margin-top: 90px;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: -8px;
+}
+
+.submit-button, .update-button {
+  font-family: 'Gilroy', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  width: 180px;
+  height: 45px;
+  color: #FFFFFF;
+  border: 1px solid #7276FF;
+  border-radius: 5px;
+  background: #7276FF;
+  cursor: pointer;
+}
+
+.update-button {
+  background: inherit;
 }
 
 .title-note {
@@ -124,76 +163,47 @@ export default {
   font-family: 'Roboto',serif;
   font-size: 24px;
   padding: 0 160px;
-  margin: 8px 0;
+  margin: 8px -22px;
 }
 
 .note-title {
-  height: 25px;
-  width: 220px;
-  border-radius: 10px;
-  border: 2px solid orange;
-  padding-left: 5px;
-  margin: 0 75px 15px;
+  height: 40px;
+  width: 325px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #7276FF;
+  padding-left: 10px;
+  background: inherit;
+  color: #FFFFFF;
+  font-size: 16px;
 }
 
 .input-field {
-  border: 1px solid orange;
+  border: 1px solid #7276FF;
   display: block;
-  margin: 0 20px;
-  height: 135px;
-  width: 318px;
-  font-size: 14px;
+  height: 140px;
+  width: 320px;
+  font-size: 16px;
   padding: 10px;
   resize: none;
   margin-bottom: 20px;
-  border-radius: 15px;
-}
-
-.notes-buttons {
-  display: flex;
-  margin: 0 20px;
-  flex-direction: row;
-  justify-content: space-between;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.submit-button, .update-button, .edit-button {
-  display: block;
-  text-decoration: none;
-  font-size: 16px;
-  border: 2px solid orange;
-  background: #333;
-  width: 120px;
-  height: 35px;
-  color: white;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-svg {
-  height: 50px;
-  color: orange;
-  margin: 15px 10px 0 165px;
-  cursor: pointer;
-}
-
-svg:hover {
-  color: #00FFFF;
-  scale: 1.5;
+  margin-left: 20px;
+  border-radius: 6px;
+  background: inherit;
+  color: #FFFFFF;
 }
 
 .note-error {
   position: absolute;
-  top: 89px;
-  left: 50px;
-  border: 2px solid orange;
-  color: white;
-  background-color: #333;
-  font-size: 28px;
+  top: 315px;
+  left: 42px;
+  color: #FFFFFF;
+  background-color: #7276FF;
+  border-radius: 6px;
+  font-size: 20px;
   height: 80px;
   width: 300px;
-  text-align: center;
   display: flex;
   align-items: center;
 }

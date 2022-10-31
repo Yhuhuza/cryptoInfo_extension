@@ -10,7 +10,7 @@
         :item="item"
         :type="true"
     ></crypto-notes>
-    <div class="note-buttons">
+    <div class="notes">
       <div class="wrapper-add">
         <button class="add-note" @click="changeTab(pages.add)">
           <img class="add-sign" src="../../../assets/add-note.svg"  alt="#"/>
@@ -95,12 +95,14 @@ export default {
   color: #FFFFFF;
 }
 
-.note-buttons {
+.notes {
   display: flex;
-  position: relative;
-  top: 315px;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  position: relative;
+  top: 215px;
 }
 
 .add-note, .update-note {
