@@ -142,16 +142,8 @@ img {
   margin-right: 5px;
 }
 
-svg {
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  color: #00FFFF;
-  cursor: pointer;
-}
-
-svg:hover {
-  color: white;
+::-webkit-scrollbar {
+  display: none;
 }
 
 </style>
