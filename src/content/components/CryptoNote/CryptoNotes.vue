@@ -2,10 +2,10 @@
   <div>
     <div class="note-pattern">
       <div class="note-editing">
-        <font-awesome-icon class="edit-note" @click="editNote" :icon="['fas', 'pen']"></font-awesome-icon>
-        <font-awesome-icon class="delete-note" @click="deleteNote(item.id)" :icon="['fas', 'trash-can']"></font-awesome-icon>
+        <img src="../../../assets/trash-sign.svg" alt="#" class="edit-note" @click="deleteNote(item.id)"/>
+        <img src="../../../assets/edit-note-sign.svg" alt="#" class="delete-note" @click="editNote" />
       </div>
-      <div>
+      <div class="card-wrapper">
         <h3 class="note-title">{{ item.title }}</h3>
         <p class="note-description">{{ item.description }}</p>
       </div>
@@ -74,22 +74,31 @@ export default {
 
 .note-pattern {
   color: white;
-  margin: 0 30px 10px;
-  width: 300px;
-  padding: 5px;
-  border: 2px solid orange;
+  margin: 0 16px 10px 16px;
+  width: 315px;
+  height: 115px;
+  padding: 0 16px;
+  border: none;
+  background: rgba(244, 235, 255, 0.05);
   border-radius: 5px;
+  position: relative;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .note-title {
   display: flex;
   justify-content: center;
-  margin: 0 0 20px;
+  margin: 0 0 8px;
   font-size: 20px;
 }
 
 .note-description {
-  margin: 0 20px;
+  margin: 0;
   font-size: 14px;
   overflow: hidden;
   overflow-wrap: break-word;
@@ -99,19 +108,19 @@ export default {
 .note-editing {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 10px 0;
+  justify-content: flex-end;
+  position: relative;
+  top: 14px;
 }
 
-svg {
-  height: 20px;
-}
-
-svg:hover {
-  color: orange;
-  transform: scale(1.2);
-  transition: 0.5s;
+.delete-note, .edit-note {
   cursor: pointer;
 }
 
+.delete-note:hover, .edit-note:hover {
+  background-color: #7276FF;
+  transform: scale(1.1);
+  border-radius: 5px;
+  transition: ease 1s;
+}
 </style>

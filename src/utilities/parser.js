@@ -2,7 +2,7 @@ import { USING_COINS } from '../utilities/constants';
 
 const extractCoins = (value) => {
   let usableCoins = [];
-  value.forEach((item, i, something) => {
+  value?.forEach((item, i, something) => {
     if (USING_COINS.includes(item.name)) {
       usableCoins.push(item);
     }

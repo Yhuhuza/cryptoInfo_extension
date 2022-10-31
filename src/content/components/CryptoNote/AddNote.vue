@@ -63,6 +63,7 @@ export default {
     }
 
     function changeTab(page) {
+      store.state.editNote = null;
       store.commit('update', {
         page: page
       });
@@ -93,6 +94,7 @@ export default {
         if (idNote) changeTab(PAGES.notes);
         updateData();
         clearFields();
+        store.state.editNote = null;
       } else {
         showError()
       }

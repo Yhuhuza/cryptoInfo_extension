@@ -39,14 +39,14 @@ export class CryptoNote{
   deleteNote({ request }) {
     const { data } = request;
     this.notes = this.notes.filter((item) => item.id !== data.note);
-    return fetch(`https://cryptoinfo-f8ee1-default-rtdb.europe-west1.firebasedatabase.app/notes/${data.note}.json`, {
+    return fetch(`https://crypto-info-ee353-default-rtdb.europe-west1.firebasedatabase.app//notes/${data.note}.json`, {
       method: 'DELETE',
     })
   }
 
   editNote({request}) {
     const { data } = request;
-    return fetch(`https://cryptoinfo-f8ee1-default-rtdb.europe-west1.firebasedatabase.app/notes/${data.id}.json`, {
+    return fetch(`https://crypto-info-ee353-default-rtdb.europe-west1.firebasedatabase.app//notes/${data.id}.json`, {
       method: 'PATCH',
       headers: {
         "Content-type": "application/json"
