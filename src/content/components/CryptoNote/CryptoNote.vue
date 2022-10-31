@@ -4,6 +4,7 @@
       {{ $t('footer.notes') }}
     </div>
     <div class="wrapper-cards">
+      <no-information class="no-notes" v-if="cryptoNotes?.length <= 0"></no-information>
       <crypto-notes
         class="crypto-note-card"
         v-for="(item, index) in cryptoNotes"
@@ -31,6 +32,7 @@
 
 <script>
 import CryptoNotes from './CryptoNotes.vue';
+import noInformation from '../NoInformationPage/NoInformation.vue'
 import { useStore } from 'vuex';
 import { PAGES } from '@/utilities/constants';
 import { computed, onMounted } from 'vue';
@@ -38,6 +40,7 @@ import { computed, onMounted } from 'vue';
 export default {
   components: {
     CryptoNotes,
+    noInformation,
   },
   setup() {
     const store = useStore();
@@ -144,6 +147,12 @@ img {
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.no-notes {
+  position: relative;
+  top: 95px;
+  left: 25px;
 }
 
 </style>

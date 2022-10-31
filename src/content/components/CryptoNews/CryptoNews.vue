@@ -15,6 +15,7 @@
             @click="nextSlide"
         />
       </div>
+      <no-information v-if="newsList?.length <= 0"></no-information>
       <crypto-news
         class="crypto-news-card"
         v-for="(item, index) in newsList"
@@ -30,12 +31,14 @@
 
 <script>
 import cryptoNews from './NewsCard.vue';
+import noInformation from '../NoInformationPage/NoInformation.vue'
 import { useStore } from "vuex";
 import { computed } from 'vue';
 
 export default {
   components: {
     cryptoNews,
+    noInformation,
   },
   data: () => ({
     currentSlide: 0,

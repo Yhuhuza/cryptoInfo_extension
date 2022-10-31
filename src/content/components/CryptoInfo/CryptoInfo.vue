@@ -13,6 +13,7 @@
       <img class="cancel-sign" :src="closeSign" @click="deleteSearchQuery"/>
     </div>
     <div class="crypto-card-block">
+      <no-information v-if="ratesList?.length <= 0"></no-information>
       <crypto-card
           class="crypto-card"
           v-for="(item, index) in findByQuery ? searchQuery : ratesList"
@@ -26,6 +27,7 @@
 
 <script>
 import cryptoCard from './CryptoCard.vue';
+import noInformation from '../NoInformationPage/NoInformation.vue'
 import { ref, computed } from 'vue';
 import { useStore } from "vuex";
 import closeSign  from '../../../assets/headerLogo/close-sign.svg';
@@ -33,6 +35,7 @@ import closeSign  from '../../../assets/headerLogo/close-sign.svg';
 export default {
   components: {
     cryptoCard,
+    noInformation,
   },
   setup () {
     const store = useStore();

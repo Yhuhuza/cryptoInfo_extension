@@ -102,7 +102,6 @@ export default {
   font-size: 14px;
   overflow: hidden;
   overflow-wrap: break-word;
-  text-align: center;
 }
 
 .note-editing {
