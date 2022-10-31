@@ -11,8 +11,18 @@
         :type="true"
     ></crypto-notes>
     <div class="note-buttons">
-      <button class="add-note" @click="changeTab(pages.add)">{{ $t('notes.addNote') }}</button>
-      <button class="update-note" @click="updateNotes">{{ $t('notes.updateNote') }}</button>
+      <div class="wrapper-add">
+        <button class="add-note" @click="changeTab(pages.add)">
+          <img class="add-sign" src="../../../assets/add-note.svg"  alt="#"/>
+          {{ $t('notes.addNote') }}
+        </button>
+      </div>
+      <div class="wrapper-update">
+        <button class="update-note" @click="updateNotes">
+          <img class="update-sign" src="../../../assets/update-note.svg"  alt="#"/>
+          {{ $t('notes.updateNote') }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -88,7 +98,7 @@ export default {
 .note-buttons {
   display: flex;
   position: relative;
-  top: 325px;
+  top: 315px;
   flex-direction: row;
   justify-content: space-around;
 }
@@ -101,32 +111,26 @@ export default {
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
-  line-height: 19px;
   display: flex;
   align-items: center;
+  justify-content: center;
   font-family: 'Gilroy', sans-serif;
   color: #FFFFFF;
-  padding-left: 70px;
   cursor: pointer;
 }
 
 .add-note {
   background: #7276FF;
   margin-right: 10px;
-  position: relative;
-}
-
-.add-note::before {
-  content: url("../../../assets/add-note.svg");
-  width: 16px;
-  height: 16px;
-  display: block;
-  position: absolute;
 }
 
 .update-note {
   background: inherit;
   border: 1px solid #7276FF;
+}
+
+img {
+  margin-right: 5px;
 }
 
 svg {
