@@ -24,7 +24,6 @@ export default {
 
 <style>
 #crypto-info {
-  /*font-family: Roboto;*/
   position: fixed;
   top: 10px;
   right: 10px;
@@ -32,7 +31,7 @@ export default {
 }
 
 @font-face {
-  font-family: "Gilroy";
+  font-family: Gilroy;
   src: url('../assets/fonts/Gilroy-Regular.ttf') format("truetype");
 }
 </style>

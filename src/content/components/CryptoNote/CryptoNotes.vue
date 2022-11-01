@@ -95,6 +95,7 @@ export default {
   justify-content: center;
   margin: 0 0 8px;
   font-size: 20px;
+  font-family: Gilroy, sans-serif;
 }
 
 .note-description {
@@ -102,6 +103,7 @@ export default {
   font-size: 14px;
   overflow: hidden;
   overflow-wrap: break-word;
+  font-family: Gilroy, sans-serif;
 }
 
 .note-editing {
@@ -110,6 +112,7 @@ export default {
   justify-content: flex-end;
   position: relative;
   top: 14px;
+  font-family: Gilroy, sans-serif;
 }
 
 .delete-note, .edit-note {

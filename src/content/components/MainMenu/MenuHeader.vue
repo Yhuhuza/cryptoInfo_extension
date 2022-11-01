@@ -89,6 +89,7 @@ export default {
 }
 
 .languages-list {
+  font-family: Gilroy, sans-serif;
   cursor: pointer;
   font-style: normal;
   font-weight: 500;
@@ -115,6 +116,7 @@ a {
   text-decoration: none;
   color: white;
   font-size: 18px;
+  font-family: Gilroy, sans-serif;
 }
 
 a:hover {

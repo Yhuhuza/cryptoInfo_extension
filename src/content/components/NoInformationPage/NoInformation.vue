@@ -10,7 +10,7 @@
 <style scoped>
 .no-data {
   font-size: 20px;
-  font-family: 'Gilroy', sans-serif;
+  font-family: Gilroy, sans-serif;
   color: #FFFFFF;
   position: relative;
   top: 155px;

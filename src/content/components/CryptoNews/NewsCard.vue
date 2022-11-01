@@ -108,6 +108,7 @@ p {
   font-size: 20px;
   color: #FFFFFF;
   margin-bottom: 8px;
+  font-family: Gilroy, sans-serif;
 }
 
 .news-description {
@@ -116,6 +117,7 @@ p {
   font-size: 14px;
   line-height: 16px;
   color: #FFFFFF;
+  font-family: Gilroy, sans-serif;
 }
 
 .read-more-button {
@@ -135,6 +137,7 @@ p {
   font-size: 16px;
   color: #FFFFFF;
   text-decoration: none;
+  font-family: Gilroy, sans-serif;
 }
 
 .slide-in-enter-active,

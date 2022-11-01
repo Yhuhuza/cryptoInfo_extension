@@ -45,6 +45,7 @@ export default {
   color: white;
   font-size: 16px;
   align-items: center;
+  font-family: Gilroy, sans-serif;
 }
 
 .set-lang {
@@ -56,7 +57,8 @@ export default {
 a {
   text-decoration: none;
   color: white;
-  height: 25px
+  height: 25px;
+  font-family: Gilroy, sans-serif;
 }
 
 a:hover {

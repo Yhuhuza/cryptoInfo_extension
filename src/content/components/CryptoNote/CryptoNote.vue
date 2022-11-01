@@ -85,14 +85,14 @@ export default {
 
 .crypto-note {
   padding: 5px 10px 0;
-  font-family: 'Roboto', serif;
+  font-family: Gilroy, sans-serif;
 }
 
 .notes-title {
   margin-top: 18px;
   margin-left: 16px;
   margin-bottom: 20px;
-  font-family: 'Gilroy', sans-serif;
+  font-family: Gilroy, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
@@ -126,7 +126,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Gilroy', sans-serif;
+  font-family: Gilroy, sans-serif;
   color: #FFFFFF;
   cursor: pointer;
 }

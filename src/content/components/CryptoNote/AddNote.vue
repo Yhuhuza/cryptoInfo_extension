@@ -143,7 +143,7 @@ export default {
 }
 
 .submit-button, .update-button {
-  font-family: 'Gilroy', sans-serif;
+  font-family: Gilroy, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -163,7 +163,7 @@ export default {
 
 .title-note {
   color: white;
-  font-family: 'Roboto',serif;
+  font-family: Gilroy, sans-serif;
   font-size: 24px;
   padding: 0 160px;
   margin: 8px -40px;
@@ -178,7 +178,7 @@ export default {
   border: none;
   padding-left: 10px;
   background: #2A2B30;
-;
+  font-family: Gilroy, sans-serif;
   color: #FFFFFF;
   font-size: 16px;
 }
@@ -196,6 +196,7 @@ export default {
   border-radius: 5px;
   background: #2A2B30;
   color: #FFFFFF;
+  font-family: Gilroy, sans-serif;
 }
 
 .note-error {
@@ -211,6 +212,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Gilroy, sans-serif;
 }
 
 .go-back {

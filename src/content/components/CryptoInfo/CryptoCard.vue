@@ -77,6 +77,7 @@ export default {
   font-weight: 600;
   font-size: 16px;
   line-height: 19px;
+  font-family: Gilroy, sans-serif;
 }
 
 .coin-price {
@@ -86,6 +87,7 @@ export default {
   font-weight: 600;
   font-size: 22px;
   line-height: 26px;
+  font-family: Gilroy, sans-serif;
 }
 
 .seven-day-fluctation, .day-fluctation {
@@ -97,6 +99,7 @@ export default {
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
+  font-family: Gilroy, sans-serif;
 }
 
 .seven-day-fluctation img, .day-fluctation img{
@@ -109,5 +112,6 @@ export default {
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
+  font-family: Gilroy, sans-serif;
 }
 </style>

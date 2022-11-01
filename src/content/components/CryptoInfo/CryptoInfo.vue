@@ -103,6 +103,7 @@ export default {
   font-weight: 600;
   font-size: 24px;
   color: #FFFFFF;
+  font-family: Gilroy, sans-serif;
 }
 
 .search-sign {
@@ -110,6 +111,7 @@ export default {
   width: 40px;
   height: 40px;
   margin-right: 16px;
+  font-family: Gilroy, sans-serif;
 }
 
 .search-sign:hover {
