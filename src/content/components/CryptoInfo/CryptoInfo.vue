@@ -145,6 +145,7 @@ export default {
   font-size: 14px;
   line-height: 16px;
   color: #FFFFFF;
+  font-family: Gilroy, sans-serif;
 }
 
 input:focus{outline:none;}
