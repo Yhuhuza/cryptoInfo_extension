@@ -39,8 +39,4 @@ Extension which help you keep in touch with crypto industry:
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-<style>
-.wrapper {
-  display: flex; 
-}
-</style>
+
