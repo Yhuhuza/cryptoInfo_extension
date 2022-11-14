@@ -1,32 +1,26 @@
 <template>
-  <transition name="slide-in">
-    <div
-        class="news-card"
-        v-if="checkImage"
-        v-show = "currentSlide === index"
-    >
-      <div class="image-wrapper">
-        <img class="news-image" :src="item.urlToImage"/>
+  <div class="news-card">
+    <div class="image-wrapper">
+      <img class="news-image" :src="item.urlToImage"/>
+    </div>
+    <div class="news-text">
+      <div class="title-wrapper">
+        <p class="news-title">
+          {{ limitStr(item.title, 55) }}
+        </p>
       </div>
-      <div class="news-text">
-        <div class="title-wrapper">
-          <p class="news-title">
-            {{ limitStr(item.title, 55) }}
-          </p>
-        </div>
-        <div class="description-wrapper">
-          <p class="news-description">
-            {{ limitStr(item.description, 70) }}
-          </p>
-        </div>
-        <div class="news-button">
-          <button class="read-more-button"><a  target="_blank" :href="setUrl">
-            {{ $t('news.readMore') }}
-          </a></button>
-        </div>
+      <div class="description-wrapper">
+        <p class="news-description">
+          {{ limitStr(item.description, 70) }}
+        </p>
+      </div>
+      <div class="news-button">
+        <button class="read-more-button"><a  target="_blank" :href="setUrl">
+          {{ $t('news.readMore') }}
+        </a></button>
       </div>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -38,8 +32,6 @@ export default {
       type: Object,
       default: () => ({}),
     },
-    currentSlide: Number,
-    index: Number,
   },
   setup(props) {
     const setUrl = computed(() => props.item.url);
@@ -92,7 +84,7 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 368px;
-  height: 148px;
+  height: 170px;
   margin-bottom: 24px;
 }
 
@@ -138,18 +130,5 @@ p {
   color: #FFFFFF;
   text-decoration: none;
   font-family: Gilroy, sans-serif;
-}
-
-.slide-in-enter-active,
-.slide-in-leave-active {
-  transition: all 1s ease-in-out;
-}
-
-.slide-in-enter-from {
-  transform: translateX(-100%);
-}
-
-.slide-in-leave-to {
-  transform: translateX(-100%);
 }
 </style>
